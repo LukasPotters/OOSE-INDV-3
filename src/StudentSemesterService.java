@@ -9,7 +9,7 @@ public class StudentSemesterService extends DatabaseService<StudentSemester> {
     @Override
     public void create(StudentSemester obj) {
         DatabaseConnection db = getDb();
-        String query = "INSERT INTO studentSemester (studentId, semesterId) VALUES (?, ?)";
+        String query = "INSERT INTO student_semester (studentId, semesterId) VALUES (?, ?)";
         db.executeUpdate(query, obj.getStudentId(), obj.getSemesterId());
     }
 
@@ -20,7 +20,7 @@ public class StudentSemesterService extends DatabaseService<StudentSemester> {
 
     @Override
     public void delete(Object... params) {
-        String query = "DELETE FROM studentSemester WHERE studentId = ? AND semesterId = ?";
+        String query = "DELETE FROM student_semester WHERE studentId = ? AND semesterId = ?";
         getDb().executeUpdate(query, params);
     }
 

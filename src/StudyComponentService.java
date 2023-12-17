@@ -9,15 +9,14 @@ public class StudyComponentService extends DatabaseService<StudyComponent> {
     @Override
     public void create(StudyComponent obj) {
         DatabaseConnection db = getDb();
-        String query = "INSERT INTO studyComponent (id, name, semesterId) VALUES (?, ?, ?)";
-        db.executeUpdate(query, obj.getId(), obj.getName(), obj.getSemesterId());
-
+        String query = "INSERT INTO study_component (name, semesterId) VALUES (?, ?)";
+        db.executeUpdate(query, obj.getName(), obj.getSemesterId());
     }
 
     @Override
     public void update(String id, StudyComponent model) {
         DatabaseConnection db = getDb();
-        String query = "UPDATE studyComponent SET name = ?, semesterId = ? WHERE id = ?";
+        String query = "UPDATE study_component SET name = ?, semesterId = ? WHERE id = ?";
         db.executeUpdate(query, model.getName(), model.getSemesterId(), id);
     }
 
@@ -47,5 +46,9 @@ public class StudyComponentService extends DatabaseService<StudyComponent> {
             e.printStackTrace();
         }
         return studyComponents;
+    }
+
+    public ResultSet getByName(String name) {
+        return getByField("name", name);
     }
 }

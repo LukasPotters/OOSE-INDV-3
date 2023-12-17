@@ -9,8 +9,8 @@ public class SemesterService extends DatabaseService<Semester> {
     @Override
     public void create(Semester obj) {
         DatabaseConnection db = getDb();
-        String query = "INSERT INTO semester (id, name) VALUES (?, ?)";
-        db.executeUpdate(query, obj.getId(), obj.getName());
+        String query = "INSERT INTO semester (name) VALUES (?)";
+        db.executeUpdate(query, obj.getName());
 
     }
 
@@ -46,5 +46,9 @@ public class SemesterService extends DatabaseService<Semester> {
             e.printStackTrace();
         }
         return semesters;
+    }
+
+    public ResultSet getByName(String name) {
+        return getByField("name", name);
     }
 }
