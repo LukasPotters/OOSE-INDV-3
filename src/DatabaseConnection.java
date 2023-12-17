@@ -36,13 +36,11 @@ public class DatabaseConnection {
     }
 
 
-    public ResultSet queryItem(String tableName, String fieldName, String fieldValue) {
-        String query = "SELECT * FROM ? WHERE ? = ?";
+    public ResultSet queryItemFilter(DatabaseService.Table tableName, String fieldName, String fieldValue) {
+        String query = "SELECT * FROM "+ tableName.toString().toLowerCase() + " WHERE "+ fieldName + " = ?";
         try {
             PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, tableName);
-            statement.setString(2, fieldName);
-            statement.setString(3, fieldValue);
+            statement.setString(1, fieldValue);
             return statement.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -50,17 +48,15 @@ public class DatabaseConnection {
         }
     }
 
-    public ResultSet queryItems(String tableName) {
-        String query = "SELECT * FROM ?";
+    public ResultSet queryItems(DatabaseService.Table tableName) {
+        String query = "SELECT * FROM " + tableName.toString().toLowerCase();
         try {
             PreparedStatement statement = connection.prepareStatement(query);
-            statement.setString(1, tableName);
+            System.out.println(statement);
             return statement.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
             throw new RuntimeException("Failed to execute query.");
         }
     }
-
-    
 }
