@@ -2,6 +2,7 @@ import java.sql.*;
 
 public class DatabaseConnection {
     private Connection connection;
+
     public DatabaseConnection() {
         String DB_URL = "jdbc:mysql://localhost:3306/test_db";
         String DB_USER = "root";
@@ -28,6 +29,7 @@ public class DatabaseConnection {
             for (int i = 0; i < params.length; i++) {
                 statement.setObject(i+1, params[i]);
             }
+            LogHandler.query(statement.toString());
             return statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -41,6 +43,7 @@ public class DatabaseConnection {
         try {
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setString(1, fieldValue);
+            LogHandler.query(statement.toString());
             return statement.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -53,6 +56,7 @@ public class DatabaseConnection {
         try {
             PreparedStatement statement = connection.prepareStatement(query);
             System.out.println(statement);
+            LogHandler.query(statement.toString());
             return statement.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
