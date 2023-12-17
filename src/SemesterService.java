@@ -1,3 +1,6 @@
+import java.sql.*;
+import java.util.ArrayList;
+
 public class SemesterService extends DatabaseService<Semester> {
     public SemesterService(DatabaseConnection db) {
         super(db);
@@ -21,5 +24,22 @@ public class SemesterService extends DatabaseService<Semester> {
     @Override
     Table getTable() {
         return Table.SEMESTER;
+    }
+
+    @Override
+    public ArrayList<Semester> getArray(ResultSet rs) {
+        ArrayList<Semester> semesters = new ArrayList<>();
+        try {
+            while (rs.next()) {
+                Semester semester = new Semester(
+                        Integer.parseInt(rs.getString("id")),
+                        rs.getString("name")
+                );
+                semesters.add(semester);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return semesters;
     }
 }

@@ -2,7 +2,7 @@ import java.sql.Timestamp;
 import java.io.*;
 
 public class LogHandler {
-    private static String logFile = ",/src/logs/log.txt";
+    private static String logFile = "./src/logs/log.txt";
 
     public static void log(String message) {
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());

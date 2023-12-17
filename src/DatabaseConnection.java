@@ -55,7 +55,6 @@ public class DatabaseConnection {
         String query = "SELECT * FROM " + tableName.toString().toLowerCase();
         try {
             PreparedStatement statement = connection.prepareStatement(query);
-            System.out.println(statement);
             LogHandler.query(statement.toString());
             return statement.executeQuery();
         } catch (SQLException e) {

@@ -1,4 +1,5 @@
 import java.sql.*;
+import java.util.ArrayList;
 
 abstract class DatabaseService<T> {
     private DatabaseConnection db;
@@ -36,4 +37,6 @@ abstract class DatabaseService<T> {
     public DatabaseConnection getDb() {
         return db;
     }
+
+    abstract public ArrayList<T> getArray(ResultSet rs);
 }

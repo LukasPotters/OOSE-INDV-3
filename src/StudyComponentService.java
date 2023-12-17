@@ -1,3 +1,6 @@
+import java.sql.*;
+import java.util.ArrayList;
+
 public class StudyComponentService extends DatabaseService<StudyComponent> {
     public StudyComponentService(DatabaseConnection db) {
         super(db);
@@ -21,5 +24,23 @@ public class StudyComponentService extends DatabaseService<StudyComponent> {
     @Override
     Table getTable() {
         return Table.STUDY_COMPONENT;
+    }
+
+    @Override
+    public ArrayList<StudyComponent> getArray(ResultSet rs) {
+        ArrayList<StudyComponent> studyComponents = new ArrayList<>();
+        try {
+            while (rs.next()) {
+                StudyComponent studyComponent = new StudyComponent(
+                        Integer.parseInt(rs.getString("id")),
+                        rs.getString("name"),
+                        Integer.parseInt(rs.getString("semesterId"))
+                );
+                studyComponents.add(studyComponent);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return studyComponents;
     }
 }
