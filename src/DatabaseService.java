@@ -22,6 +22,8 @@ abstract class DatabaseService<T> {
 
     abstract public void update(String id, T model);
 
+    abstract public void delete(Object... params);
+
     public ResultSet getById(String id) {
         return db.queryItemFilter(getTable(), "id", id);
     }

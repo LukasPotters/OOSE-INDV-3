@@ -22,6 +22,11 @@ public class StudentService extends DatabaseService<Student> {
     }
 
     @Override
+    public void delete(Object... params) {
+        throw new UnsupportedOperationException("This method cannot be used.");
+    }
+
+    @Override
     Table getTable() {
         return Table.STUDENT;
     }

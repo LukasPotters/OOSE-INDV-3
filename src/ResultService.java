@@ -20,6 +20,11 @@ public class ResultService extends DatabaseService<Result> {
     }
 
     @Override
+    public void delete(Object... params) {
+        throw new UnsupportedOperationException("This method cannot be used.");
+    }
+
+    @Override
     Table getTable() {
         return Table.RESULT;
     }
