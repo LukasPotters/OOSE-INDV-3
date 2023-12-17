@@ -28,6 +28,9 @@ public class Menu {
         System.out.println("c2. Get study component list");
         System.out.println("c3. Get study component by id");
         System.out.println("c4. Get study component by name");
+        System.out.println("Results:");
+        System.out.println("d1. Create result");
+        System.out.println("d2. Get result list for student");
     }
 
     public String getInput() {

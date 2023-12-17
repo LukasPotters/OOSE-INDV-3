@@ -258,7 +258,69 @@ public class Controller {
                         System.out.println(sc.getId() + " | " + sc.getName());
                     }
                     break;
-
+                
+                case "d1":
+                    System.out.println("Enter student id: ");
+                    String resultStudentId = menu.getInput();
+                    ResultSet resultStudent = studentService.getById(resultStudentId);
+                    ArrayList<Student> resultStudentList = studentService.getArray(resultStudent);
+                    if (resultStudentList.isEmpty()) {
+                        System.out.println("Student not found.");
+                        break;
+                    }
+                    System.out.println("Enter study component id: ");
+                    String resultStudyComponentId = menu.getInput();
+                    ResultSet resultStudyComponent = studyComponentService.getById(resultStudyComponentId);
+                    ArrayList<StudyComponent> resultStudyComponentList = studyComponentService.getArray(resultStudyComponent);
+                    if (resultStudyComponentList.isEmpty()) {
+                        System.out.println("Study component not found.");
+                        break;
+                    }
+                    System.out.println("Enter date: ");
+                    String date = menu.getInput();
+                    if (!date.matches("\\d{4}-\\d{2}-\\d{2}")) {
+                        System.out.println("Invalid date format.");
+                        break;
+                    }
+                    System.out.println("Enter result: ");
+                    String resultResult = menu.getInput();
+                    // check if result is valid float
+                    try {
+                        Float.parseFloat(resultResult);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid result.");
+                        break;
+                    }
+                    Result result = new Result(
+                            resultStudentList.get(0).getId(),
+                            resultStudyComponentList.get(0).getId(),
+                            date,
+                            Float.parseFloat(resultResult)
+                    );
+                    resultService.create(result);
+                    break;
+                case "d2":
+                    System.out.println("Enter student id: ");
+                    String resultsStudentId = menu.getInput();
+                    ResultSet resultsStudent = studentService.getById(resultsStudentId);
+                    ArrayList<Student> resultsStudentList = studentService.getArray(resultsStudent);
+                    if (resultsStudentList.isEmpty()) {
+                        System.out.println("Student not found.");
+                        break;
+                    }
+                    ResultSet resultsForStudent = resultService.getByField("studentId", resultsStudentId);
+                    ArrayList<Result> resultsForStudentList = resultService.getArray(resultsForStudent);
+                    if (resultsForStudentList.isEmpty()) {
+                        System.out.println("No results found.");
+                        break;
+                    }
+                    for (Result r : resultsForStudentList) {
+                        ResultSet studyComponentForResult = studyComponentService.getById(Integer.toString(r.getComponentId()));
+                        ArrayList<StudyComponent> studyComponentResultList = studyComponentService.getArray(studyComponentForResult);
+                        System.out.println(studyComponentResultList.get(0).getName() + " | " + r.getDate() + " | " + r.getResult());
+                    }
+                    break;
+                
                 default:
                     System.out.println("Invalid input.");
                     break;

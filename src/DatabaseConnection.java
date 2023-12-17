@@ -11,6 +11,7 @@ public class DatabaseConnection {
             connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
         } catch (SQLException e) {
             e.printStackTrace();
+            LogHandler.error("Failed to initialize database connection.");
             throw new RuntimeException("Failed to initialize database connection.");
         }
     }
@@ -19,6 +20,7 @@ public class DatabaseConnection {
             connection.close();
         } catch (SQLException e) {
             e.printStackTrace();
+            LogHandler.error("Failed to close database connection.");
             throw new RuntimeException("Failed to close database connection.");
         }
     }
@@ -33,6 +35,7 @@ public class DatabaseConnection {
             return statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
+            LogHandler.error("Failed to execute database update.");
             throw new RuntimeException("Failed to execute update.");
         }
     }
@@ -47,6 +50,7 @@ public class DatabaseConnection {
             return statement.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
+            LogHandler.error("Failed to execute database query.");
             throw new RuntimeException("Failed to execute query.");
         }
     }
@@ -59,6 +63,7 @@ public class DatabaseConnection {
             return statement.executeQuery();
         } catch (SQLException e) {
             e.printStackTrace();
+            LogHandler.error("Failed to execute database query.");
             throw new RuntimeException("Failed to execute query.");
         }
     }
