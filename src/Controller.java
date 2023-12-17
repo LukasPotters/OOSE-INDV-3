@@ -37,10 +37,12 @@ public class Controller {
                     System.exit(0);
                     break;
                 case "a1":
+                    System.out.println("- Create Student -");
                     Student student = menu.inputStudent(-1);
                     studentService.create(student);
                     break;
                 case "a2":
+                    System.out.println("- Student List -");
                     ResultSet students = studentService.getAll();
                     ArrayList<Student> studentList = studentService.getArray(students);
                     for (Student s : studentList) {
@@ -48,6 +50,7 @@ public class Controller {
                     }
                     break;
                 case "a3":
+                    System.out.println("- Get Student By Id -");
                     System.out.println("Enter student id: ");
                     String id = menu.getInput();
                     ResultSet idStudents = studentService.getById(id);
@@ -61,6 +64,7 @@ public class Controller {
                     }
                     break;
                 case "a4":
+                    System.out.println("- Get Student By Last Name -");
                     System.out.println("Enter student last name: ");
                     String lastName = menu.getInput();
                     ResultSet lastNameStudents = studentService.getByLastName(lastName);
@@ -74,6 +78,7 @@ public class Controller {
                     }
                     break;
                 case "a5":
+                    System.out.println("- Update Student -");
                     System.out.println("Enter student id: ");
                     String studentId = menu.getInput();
                     ResultSet updateStudent = studentService.getById(studentId);
@@ -87,6 +92,7 @@ public class Controller {
                     studentService.update(studentId, updatedStudent);
                     break;
                 case "a6":
+                    System.out.println("- Sign user up for semester -");
                     System.out.println("Enter student id: ");
                     String signupStudentId = menu.getInput();
                     System.out.println("Enter semester id: ");
@@ -110,6 +116,7 @@ public class Controller {
                     studentSemesterService.create(studentSemester);
                     break;
                 case "a7":
+                    System.out.println("- Sign user out of semester -");
                     System.out.println("Enter student id: ");
                     String signoutStudentId = menu.getInput();
                     System.out.println("Enter semester id: ");
@@ -129,6 +136,7 @@ public class Controller {
                     studentSemesterService.delete(signoutStudentId, signoutSemesterId);
                     break;
                 case "a8":
+                    System.out.println("- Get semesters for student -");
                     System.out.println("Enter student id: ");
                     String semesterStudentId = menu.getInput();
                     ResultSet semesterStudent = studentService.getById(semesterStudentId);
@@ -151,12 +159,14 @@ public class Controller {
                     break;
                 
                 case "b1":
+                    System.out.println("- Create Semester -");
                     System.out.println("Enter semester name: ");
                     String semesterName = menu.getInput();
                     Semester semester = new Semester(-1, semesterName);
                     semesterService.create(semester);
                     break;
                 case "b2":
+                    System.out.println("- Semester List -");
                     ResultSet semesters = semesterService.getAll();
                     ArrayList<Semester> semesterList = semesterService.getArray(semesters);
                     for (Semester s : semesterList) {
@@ -164,6 +174,7 @@ public class Controller {
                     }
                     break;
                 case "b3":
+                    System.out.println("- Get Semester By Id -");
                     System.out.println("Enter semester id: ");
                     String getSemesterId = menu.getInput();
                     ResultSet semesterById = semesterService.getById(getSemesterId);
@@ -177,6 +188,7 @@ public class Controller {
                     }
                     break;
                 case "b4":
+                    System.out.println("- Get Semester By Name -");
                     System.out.println("Enter semester name: ");
                     String getSemesterName = menu.getInput();
                     ResultSet semesterByName = semesterService.getByName(getSemesterName);
@@ -190,6 +202,7 @@ public class Controller {
                     }
                     break;
                 case "b5":
+                    System.out.println("- Get students for semester -");
                     System.out.println("Enter semester id: ");
                     String semesterIdToGetStudents = menu.getInput();
                     ResultSet semesterToGetStudents = semesterService.getById(semesterIdToGetStudents);
@@ -212,6 +225,7 @@ public class Controller {
                     break;
                 
                 case "c1":
+                    System.out.println("- Create Study Component -");
                     System.out.println("Enter study component name: ");
                     String studyComponentName = menu.getInput();
                     System.out.println("Enter semester id: ");
@@ -226,6 +240,7 @@ public class Controller {
                     studyComponentService.create(studyComponent);
                     break;
                 case "c2":
+                    System.out.println("- Study Component List -");
                     ResultSet studyComponents = studyComponentService.getAll();
                     ArrayList<StudyComponent> studyComponentList = studyComponentService.getArray(studyComponents);
                     for (StudyComponent sc : studyComponentList) {
@@ -233,6 +248,7 @@ public class Controller {
                     }
                     break;
                 case "c3":
+                    System.out.println("- Get Study Component By Id -");
                     System.out.println("Enter study component id: ");
                     String studyComponentId = menu.getInput();
                     ResultSet studyComponentById = studyComponentService.getById(studyComponentId);
@@ -246,6 +262,7 @@ public class Controller {
                     }
                     break;
                 case "c4":
+                    System.out.println("- Get Study Component By Name -");
                     System.out.println("Enter study component name: ");
                     String getStudyComponentName = menu.getInput();
                     ResultSet studyComponentByName = studyComponentService.getByName(getStudyComponentName);
@@ -260,6 +277,7 @@ public class Controller {
                     break;
                 
                 case "d1":
+                    System.out.println("- Create Result -");
                     System.out.println("Enter student id: ");
                     String resultStudentId = menu.getInput();
                     ResultSet resultStudent = studentService.getById(resultStudentId);
@@ -300,6 +318,7 @@ public class Controller {
                     resultService.create(result);
                     break;
                 case "d2":
+                    System.out.println("- Get result list for student -");
                     System.out.println("Enter student id: ");
                     String resultsStudentId = menu.getInput();
                     ResultSet resultsStudent = studentService.getById(resultsStudentId);
@@ -325,6 +344,7 @@ public class Controller {
                     System.out.println("Invalid input.");
                     break;
             }
+            System.out.println("");
         }
     }
 }

@@ -1,0 +1,35 @@
+log: Program started. | 2023-12-17 19:35:04.314
+query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO student (firstName, lastName) VALUES ('Lukas', 'Potters') | 2023-12-17 19:36:22.173
+query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO student (firstName, lastName) VALUES ('Tets', 'Student') | 2023-12-17 19:37:09.927
+query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO student (firstName, lastName) VALUES ('Some', 'Person') | 2023-12-17 19:37:22.394
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM student | 2023-12-17 19:37:34.005
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM student WHERE id = '7' | 2023-12-17 19:37:39.63
+query: com.mysql.cj.jdbc.ClientPreparedStatement: UPDATE student SET firstName = 'Test', lastName = 'Student' WHERE id = '7' | 2023-12-17 19:37:49.35
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM student | 2023-12-17 19:39:39.653
+query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO semester (name) VALUES ('sem1') | 2023-12-17 19:39:46.486
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM semester | 2023-12-17 19:39:52.849
+query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO semester (name) VALUES ('sem2') | 2023-12-17 19:40:05.149
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM semester | 2023-12-17 19:41:10.495
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM semester WHERE id = '2' | 2023-12-17 19:41:22.854
+query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO study_component (name, semesterId) VALUES ('component1', 2) | 2023-12-17 19:41:22.863
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM semester WHERE id = '2' | 2023-12-17 19:41:35.791
+query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO study_component (name, semesterId) VALUES ('component2', 2) | 2023-12-17 19:41:35.791
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM semester WHERE id = '3' | 2023-12-17 19:41:45.699
+query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO study_component (name, semesterId) VALUES ('component3', 3) | 2023-12-17 19:41:45.699
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM study_component WHERE id = '2' | 2023-12-17 19:42:06.995
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM study_component | 2023-12-17 19:42:11.718
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM student WHERE id = '6' | 2023-12-17 19:42:41.969
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM result WHERE studentId = '6' | 2023-12-17 19:42:41.969
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM student WHERE id = '6' | 2023-12-17 19:42:48.366
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM study_component WHERE id = '2' | 2023-12-17 19:42:57.298
+query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO result (studentId, componentId, date, result) VALUES (6, 2, '2023-12-01', 7.45) | 2023-12-17 19:43:08.752
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM student WHERE id = '6' | 2023-12-17 19:43:25.688
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM study_component WHERE id = '4' | 2023-12-17 19:43:31.472
+query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO result (studentId, componentId, date, result) VALUES (6, 4, '2023-12-15', 6.8) | 2023-12-17 19:43:44.834
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM student WHERE id = '8' | 2023-12-17 19:43:53.64
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM study_component WHERE id = '2' | 2023-12-17 19:43:58.453
+query: com.mysql.cj.jdbc.ClientPreparedStatement: INSERT INTO result (studentId, componentId, date, result) VALUES (8, 2, '2023-12-05', 9.5) | 2023-12-17 19:44:15.208
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM student WHERE id = '6' | 2023-12-17 19:44:27.85
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM result WHERE studentId = '6' | 2023-12-17 19:44:27.852
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM study_component WHERE id = '2' | 2023-12-17 19:44:27.856
+query: com.mysql.cj.jdbc.ClientPreparedStatement: SELECT * FROM study_component WHERE id = '4' | 2023-12-17 19:44:27.868
